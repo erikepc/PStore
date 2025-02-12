@@ -1,0 +1,17 @@
+git config --global user.name erikepc
+git config --global user.email erike45@hotmail.com
+
+dotnet new sln --name PStore
+dotnet new mvc -o PStore
+dotnet sln add PStore\PStore.csproj
+
+cd PStore
+
+dotnet add package Microsoft.EntityFrameworkCore --version 9.0.2
+dotnet add package Microsoft.EntityFrameworkCore.Design --version 9.0.2
+dotnet add package Microsoft.EntityFrameworkCore.Tools --version 9.0.2
+dotnet add package Microsoft.AspNetCore.Identity.EntityFrameworkCore --version 9.0.2
+dotnet add package MySql.EntityFrameworkCore --version 9.0.0
+
+Criar as classes da cama de dados (Models)
+
