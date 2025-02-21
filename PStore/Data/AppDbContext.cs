@@ -97,13 +97,13 @@ public class AppDbContext : IdentityDbContext<Usuario>
                 Id = Guid.NewGuid().ToString(),
                 Name = "Administrador",
                 NormalizedName = "ADMINISTRADOR"
-            }
+            },
             new IdentityRole()
             {
                 Id = Guid.NewGuid().ToString(),
                 Name = "Funcionário",
                 NormalizedName = "FUNCIONÁRIO"
-            }
+            },
             new IdentityRole()
             {
                 Id = Guid.NewGuid().ToString(),
