@@ -26,7 +26,7 @@ namespace PStore.Models
 
         [Required(ErrorMessage = "Por favor digite a quantidade do item")]
         [Range(0, int.MaxValue)] // Garante que a quantidade não seja negativa
-        public int Qtde { get; set; } = 0;
+        public int QtdeEstoque { get; set; } = 0;
 
         [Column(TypeName = "decimal(10,2)")] // Define a precisão do campo no banco de dados usar numeric() é o caso mais padrão
         [Range(0.01, double.MaxValue)] // Evita valores negativos ou zero
@@ -35,5 +35,9 @@ namespace PStore.Models
         [Column(TypeName = "decimal(10,2)")]
         [Range(0.01, double.MaxValue)]
         public decimal ValorVenda { get; set; }
+
+        public bool Destaque { get; set; } = false;
+
+        public List<ProdutoFoto> Fotos { get; set; }                
     }
 }

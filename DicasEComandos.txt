@@ -27,3 +27,10 @@ executar o xampp e o MySql
 
 dotnet watch run
 
+se mexer muito no seed, controllers utilizar {
+    dotnet clean
+
+    dotnet restore
+
+}
+
