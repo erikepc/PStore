@@ -1,8 +1,10 @@
 using System.Diagnostics;
+using System.Runtime.InteropServices;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PStore.Data;
 using PStore.Models;
+using PStore.ViewModels;
 
 namespace PStore.Controllers;
 
@@ -21,6 +23,26 @@ public class HomeController : Controller
     {
         List<Produto> produtos = _db.Produtos.Where(p => p.Destaque).Include(p => p.Fotos).ToList();
         return View(produtos);
+    }
+
+    public IActionResult Produto(int id)
+    {
+        Produto produto = _db.Produtos
+        .Where(p => p.Id == id)
+        .Include(p => p.Categoria)
+        .Include(p => p.Fotos)
+        .SingleOrDefault();
+
+
+        ProdutoVM produtoVM = new(){
+            Produto = produto
+        };
+
+        produtoVM.Produtos = _db.Produtos
+            .Where(p => p.CategoriaId == produto.CategoriaId)
+            .Take(4).ToList();
+
+        return View(produtoVM);
     }
 
     public IActionResult Privacy()
