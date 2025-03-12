@@ -34,3 +34,16 @@ se mexer muito no seed, controllers utilizar {
 
 }
 
+dotnet codegenerator
+dotnet tool install -g dotnet-aspnet-codegenerator --version 9.0
+
+
+dotnet aspnet-codegenerator -h
+
+dotnet aspnet-codegenerator controller -name CategoriasController --model Categoria --dataContext AppDbContext --layout "~/Views/Shared/_LayoutAdmin.cshtml" -outDir Controllers
+
+    (adicionar packages para usar o codegenerator)
+    {
+    dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design --version 9.0.0 
+    dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 9.0.2 
+    }
