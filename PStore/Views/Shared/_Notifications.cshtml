@@ -1,0 +1,25 @@
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+    const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 5000,
+        timerProgressBar: true,
+        dipOpen: (toast) => {
+            toast.onmouseenter = Swal.stopTimer;
+            toast.onmouseleave = Swal.resumeTimer;
+        }
+    });
+
+    const message = @Html.Raw(Json.Serialize(TempData["Sucess"]));
+
+    if (message) {
+        Toast.fire({
+            icon: "sucess",
+            title: message
+        });
+    }
+
+</script>
